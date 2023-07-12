@@ -1,6 +1,6 @@
 import subprocess
 
-command = ["C:\\sikulixide.jar", "-r", "C:\BotBehaviourScripts\checkTodaysFolder.sikuli"]
+command = ["java", "-jar", "C:/sikulixide.jar", "-r", "C:/BotBehaviourScripts/checkTodaysFolder.sikuli"]
 
 subprocess.run(command, check=True)
 
