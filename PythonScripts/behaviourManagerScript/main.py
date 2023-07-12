@@ -4,6 +4,4 @@ command = ["java", "-jar", "C:/sikulixide.jar", "-r", "C:/BotBehaviourScripts/ch
 
 subprocess.run(command, check=True)
 
-print("HELP")
-
 input("Press Enter to continue...")
