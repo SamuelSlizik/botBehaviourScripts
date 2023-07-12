@@ -1,0 +1,23 @@
+if (not exists("1689157669910.png")):
+    click("1689157571730.png")
+    wait("1689157669910.png")
+click("1689157669910.png")
+wait("1689157796776.png")
+click(Pattern("1689157796776.png").targetOffset(10,65))
+rightClick(Pattern("1689157796776.png").targetOffset(10,65))
+wait("1689162068181.png")
+click(Pattern("1689162068181.png").targetOffset(-87,-13))
+click("1689160215495.png")
+doubleClick("1689158399441.png")
+wait("1689158871982.png")
+doubleClick(Pattern("1689158871982.png").targetOffset(19,64))
+wait("1689162297972.png")
+rightClick(Pattern("1689162297972.png").targetOffset(12,61))
+wait("1689162365910.png")
+click(Pattern("1689162365910.png").targetOffset(-66,-5))
+wait("1689170604927.png", 2)
+while (exists("1689170604927.png")):
+    click(Pattern("1689170604927.png").targetOffset(20,108))
+    wait(2)
+
+click("1689160215495.png")
