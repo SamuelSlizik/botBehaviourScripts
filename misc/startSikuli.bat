@@ -1,0 +1,1 @@
+java -jar C:\Users\Samo\Desktop\sikulixide-2.0.5.jar
