@@ -1,0 +1,6 @@
+open impress
+make a new slide
+paste in an xlsx table
+press enter
+click on the slides text
+CRASH!
