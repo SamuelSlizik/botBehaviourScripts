@@ -1,0 +1,27 @@
+roundcube server address:
+http://62.197.235.65/roundcube
+
+Test mail:
+janko.binconf@gmail.com
+
+Gmail pass:
+Silneheslo123
+
+Roundcube pass:
+ethmyuouchknwcqo
+
+How to config a test mail:
+	- open gmail
+	- follow standard account creation process
+	- once you are in your gmail mailbox open settings and click on see all settings
+	- click on "Forwarding and POP/IMAP"
+	- enable IMAP and save changes
+	
+	- go to account settings
+	- click on the security tab
+	- click on 2 step verification
+	- follow the process to enable 2 step verification
+	- go back to the security tab and click on 2 step verification
+	- scroll all the way down to app passwords
+	- create a new app password for Mail on a windows computer (or any other options that you need)
+	- save it this is how you will sign in into your account in roundcube
