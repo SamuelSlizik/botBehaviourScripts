@@ -1,0 +1,31 @@
+app:
+  sikulix_ide: C:\Users\sikulix\Desktop\sikulixide-2.0.5.jar
+  roundcube_url: "http://62.197.235.65/roundcube/"
+
+logging:
+  version: 1
+  formatters:
+    simple:
+      datefmt: "%Y-%m-%d %H:%M:%S"
+      format: "%(asctime)s %(levelname)s: %(message)s"
+  handlers:
+    console:
+      class: logging.StreamHandler
+      level: INFO
+      formatter: simple
+      stream: ext://sys.stdout
+    file:
+      class: logging.handlers.RotatingFileHandler
+      level: INFO
+      formatter: simple
+      filename: "{{ log_folder }}/logs.log"
+      maxBytes: 4153344
+      backupCount: 7
+  loggers:
+    autoconfig:
+      level: INFO
+      handlers: [console, file]
+      propagate: no
+  root:
+    level: INFO
+    handlers: [console]
