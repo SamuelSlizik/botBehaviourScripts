@@ -2,6 +2,8 @@ from sikuli import *
 import os
 import logger
 
+# CTRL + SHIFT + 6 = file explorer view details
+
 def check_or_create_folder(path):
     try:
         splitPath = pathath.split("\\")
