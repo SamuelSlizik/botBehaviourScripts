@@ -1,6 +1,13 @@
+user:
+  procrastination_likelyhood: 2
+  procrastination_min_time: 30
+  procrastination_max_time: 210
+  procrastination_preference: 0.5
+
 app:
   sikulix_ide: C:\Users\sikulix\Desktop\sikulixide-2.0.5.jar
   roundcube_url: "http://62.197.235.65/roundcube/"
+  archive_path: C:\Archive
 
 logging:
   version: 1
