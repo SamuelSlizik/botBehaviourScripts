@@ -1,5 +1,5 @@
 user:
-  procrastination_likelyhood: 2
+  procrastination_chance: 2
   procrastination_min_time: 30
   procrastination_max_time: 210
   procrastination_preference: 0.5
