@@ -23,7 +23,7 @@ with open(config_file, "r") as stream:
 
 def main():
     # Wait so all the systems have time to initialize
-    time.sleep(60)
+    time.sleep(5)
 
     # Check or create todays archive subfolder
     create_todays_folder = run_sikulix_script("sys_utils", "check_or_create_folder", [cfg["app"]["archive_path"] + "\\" + datetime.now().strftime("%Y-%m-%d")])
@@ -35,10 +35,10 @@ def main():
 
             # Open edge
             open_edge = run_sikulix_script("edge_utils", "open_edge")
-            if open_edge["status"] != "success":
+            if open_edge["msg"] != "success":
                 continue
 
-            sleep(1)
+            time.sleep(1)
 
             if random.uniform(0, 1) < cfg["user"]["procrastination_preference"]:
                 # Procrastinate on youtube
@@ -57,6 +57,7 @@ def main():
             close_tab = run_sikulix_script("edge_utils", "close_latest_tab")
         #else:
             #work
+
 
 if __name__ == "__main__":
     main()
