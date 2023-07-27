@@ -35,23 +35,23 @@ def main():
 
             # Open edge
             open_edge = run_sikulix_script("edge_utils", "open_edge")
-            if open_edge["msg"] != "success":
-                continue
+            #if open_edge["msg"] != "success":
+                #continue
 
             time.sleep(1)
 
             if random.uniform(0, 1) < cfg["user"]["procrastination_preference"]:
                 # Procrastinate on youtube
                 search_url = run_sikulix_script("edge_utils", "search_by_url", ["youtube.com"])
-                if search_url["status"] == "success":
-                    time.sleep(10)
-                    run_sikulix_script("more_edge_utils", "edge_watch_youtube_shorts", [procrastination_time])
+                #if search_url["status"] == "success":
+                time.sleep(10)
+                run_sikulix_script("more_edge_utils", "edge_watch_youtube_shorts", [procrastination_time])
             else:
                 # Procrastinate on cats
                 search_text = run_sikulix_script("edge_utils", "search_by_text", ["kittens"])
-                if search_text["status"] == "success":
-                    time.sleep(10)
-                    run_sikulix_script("more_edge_utils", "edge_scroll_images", [procrastination_time])
+                #if search_text["status"] == "success":
+                time.sleep(10)
+                run_sikulix_script("more_edge_utils", "edge_scroll_images", [procrastination_time])
 
             time.sleep(1)
             close_tab = run_sikulix_script("edge_utils", "close_latest_tab")
