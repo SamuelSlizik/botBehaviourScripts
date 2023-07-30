@@ -5,10 +5,11 @@ import random
 
 def edge_scroll_images(time):
     try:
+        convertedTime = float(time)
         wait("1690286144726.png")
         click("1690286144726.png")
         wait("1690286179068.png")
-        for i in range(time):
+        for i in range(convertedTime):
             sikuli.wheel(WHEEL_DOWN, 1)
             wait(1)
         logger.log("info", "Finished scrolling images", "success")
@@ -18,11 +19,12 @@ def edge_scroll_images(time):
 
 def edge_watch_youtube_shorts(time):
     try:
+        convertedTime = float(time)
         wait("1690290587338.png")
         click("1690290587338.png")
         wait("1690290670091.png")
         watchTime = 0
-        while watchTime < time:
+        while watchTime < convertedTime:
             watch = random.uniform(10.0, 60.0)
             watchTime += watch
             wait(watch)

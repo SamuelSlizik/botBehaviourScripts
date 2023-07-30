@@ -45,13 +45,13 @@ def main():
                 search_url = run_sikulix_script("edge_utils", "search_by_url", ["youtube.com"])
                 #if search_url["status"] == "success":
                 time.sleep(10)
-                run_sikulix_script("more_edge_utils", "edge_watch_youtube_shorts", [procrastination_time])
+                run_sikulix_script("more_edge_utils", "edge_watch_youtube_shorts", [str(procrastination_time)])
             else:
                 # Procrastinate on cats
                 search_text = run_sikulix_script("edge_utils", "search_by_text", ["kittens"])
                 #if search_text["status"] == "success":
                 time.sleep(10)
-                run_sikulix_script("more_edge_utils", "edge_scroll_images", [procrastination_time])
+                run_sikulix_script("more_edge_utils", "edge_scroll_images", [str(procrastination_time)])
 
             time.sleep(1)
             close_tab = run_sikulix_script("edge_utils", "close_latest_tab")
