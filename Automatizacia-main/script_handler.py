@@ -4,7 +4,6 @@ import logging
 import logging.config
 import sys
 import time
-from datetime import datetime
 
 import yaml
 import json
@@ -109,4 +108,4 @@ def run_sikulix_script(script_name: str, function_name: str = "main", script_arg
 
 
 time.sleep(5)
-create_todays_folder = run_sikulix_script("sys_utils", "check_or_create_folder", [cfg["app"]["archive_path"] + "\\" + datetime.now().strftime("%Y-%m-%d")])
+create_todays_folder = run_sikulix_script("sys_utils", "check_or_create_folder", ["C:\\Archive\\Test"])
