@@ -7,7 +7,7 @@ import logger
 
 def check_or_create_folder(path):
     try:
-        splitPath = pathath.split("\\")
+        splitPath = path.split("\\")
         if splitPath[0] == "C:":
             splitPath.pop(0)
         if not exists("1689173481864.png"):
