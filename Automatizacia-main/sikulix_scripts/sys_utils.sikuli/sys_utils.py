@@ -37,6 +37,10 @@ def check_or_create_folder(path):
         logger.log("error", "Error while checking folder: {path}, on level: {subPath}".format(path=path, subPath=partialPath), "failure", ex)
 
 
+def altf4():
+    type(Key.F4, KeyModifier.ALT)
+
+
 if __name__ == "__main__":
     if len(sys.argv) < 1:
         logger.log("error", "No function name provided", "failure")
@@ -47,3 +51,6 @@ if __name__ == "__main__":
     if function_name == "check_or_create_folder":
         path = sys.argv[2]
         check_or_create_folder(path)
+
+    if function_name == "altf4":
+        altf4()

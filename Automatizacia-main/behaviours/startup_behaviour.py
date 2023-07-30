@@ -27,6 +27,9 @@ def main():
 
     # Check or create todays archive subfolder
     create_todays_folder = run_sikulix_script("sys_utils", "check_or_create_folder", [cfg["app"]["archive_path"] + "\\" + datetime.now().strftime("%Y-%m-%d")])
+    if create_todays_folder["status"] == "success":
+        time.sleep(1)
+        run_sikulix_script("sys_utils", "altf4")
 
     # Decide if the user procrastinates or works
     while True:

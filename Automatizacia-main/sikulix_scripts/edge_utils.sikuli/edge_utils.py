@@ -40,11 +40,7 @@ def search_by_url(url):
         logger.log("error", "Error while searching by url: {url}".format(url=url), "failure", ex)
 
 def close_latest_tab():
-    try:
-        click(Pattern("1689974812904.png").targetOffset(-24,0))
-        logger.log("info", "Closed latest tab", "success")
-    except Exception as ex:
-        logger.log("error", "Error while closing latest tab", "failure", ex)
+    type("w", KeyModifier.CTRL)
 
 if __name__ == "__main__":
     if len(sys.argv) < 1:
