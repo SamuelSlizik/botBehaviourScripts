@@ -36,7 +36,7 @@ def main():
 
             # Open edge
             open_edge = run_sikulix_script("edge_utils", "open_edge")
-            if open_edge["msg"] != "success":
+            if open_edge["status"] != "success":
                 continue
 
             time.sleep(1)
