@@ -3,6 +3,9 @@ import subprocess
 import logging
 import logging.config
 import sys
+import time
+from datetime import datetime
+
 import yaml
 import json
 
@@ -52,7 +55,6 @@ loggerTmp = logging.getLogger("autoconfig")
 stdoutLogger = logging.StreamHandler(stream=sys.stdout)
 stdoutLogger.setFormatter(logging.Formatter(logging.BASIC_FORMAT))
 loggerTmp.addHandler(stdoutLogger)
-
 
 def run_sikulix_script(script_name: str, function_name: str = "main", script_args: list[str] = None) -> str:
     """
@@ -104,3 +106,7 @@ def run_sikulix_script(script_name: str, function_name: str = "main", script_arg
         sys.stdout.buffer.write((line + "\n").encode("utf-8")) 
 
     return line_dict
+
+
+time.sleep(5)
+create_todays_folder = run_sikulix_script("sys_utils", "check_or_create_folder", [cfg["app"]["archive_path"] + "\\" + datetime.now().strftime("%Y-%m-%d")])
