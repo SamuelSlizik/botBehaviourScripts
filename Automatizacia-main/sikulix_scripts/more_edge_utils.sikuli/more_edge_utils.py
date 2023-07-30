@@ -42,8 +42,8 @@ if __name__ == "__main__":
     function_name = sys.argv[1]
 
     if function_name == "edge_scroll_images":
-        time = int(sys.argv[2])
+        time = sys.argv[2]
         edge_scroll_images(time)
     elif function_name == "edge_watch_youtube_shorts":
-        time = int(sys.argv[2])
+        time = sys.argv[2]
         edge_watch_youtube_shorts(time)
