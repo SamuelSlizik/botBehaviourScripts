@@ -77,6 +77,7 @@ def run_sikulix_script(script_name: str, function_name: str = "main", script_arg
 
     # Create command
     command = f'java -jar {cfg["app"]["sikulix_ide"]} -r {script_path} --args {function_name} {script_args}'
+    print("Running command:", command)
 
     # Run sikulix script
     process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)

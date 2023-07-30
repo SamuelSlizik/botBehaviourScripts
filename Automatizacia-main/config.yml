@@ -5,7 +5,7 @@ user:
   procrastination_preference: 0.5
 
 app:
-  sikulix_ide: C:\Users\sikulix\Desktop\sikulixide-2.0.5.jar
+  sikulix_ide: C:\sikulixide.jar
   roundcube_url: "http://62.197.235.65/roundcube/"
   archive_path: C:\Archive
 
