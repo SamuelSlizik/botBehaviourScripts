@@ -30,37 +30,30 @@ def main():
 
     # Decide if the user procrastinates or works
     while True:
-        print("Deciding if the user procrastinates or works")
         if random.uniform(0, 1) < cfg["user"]["procrastination_chance"]:
-            print("Procrastinating")
             procrastination_time = random.uniform(cfg["user"]["procrastination_min_time"], cfg["user"]["procrastination_max_time"])
 
             # Open edge
             open_edge = run_sikulix_script("edge_utils", "open_edge")
-            #if open_edge["msg"] != "success":
-                #continue
+            if open_edge["msg"] != "success":
+                continue
 
             time.sleep(1)
-            print("Procrastinating 2")
             if random.uniform(0, 1) < cfg["user"]["procrastination_preference"]:
                 # Procrastinate on youtube
                 search_url = run_sikulix_script("edge_utils", "search_by_url", ["youtube.com"])
-                #if search_url["status"] == "success":
-                time.sleep(10)
-                run_sikulix_script("more_edge_utils", "edge_watch_youtube_shorts", [str(procrastination_time)])
+                if search_url["status"] == "success":
+                    time.sleep(1)
+                    run_sikulix_script("more_edge_utils", "edge_watch_youtube_shorts", [str(procrastination_time)])
             else:
                 # Procrastinate on cats
                 search_text = run_sikulix_script("edge_utils", "search_by_text", ["kittens"])
-                #if search_text["status"] == "success":
-                time.sleep(10)
-                run_sikulix_script("more_edge_utils", "edge_scroll_images", [str(procrastination_time)])
-
-            print("Procrastinating 3")
+                if search_text["status"] == "success":
+                    time.sleep(1)
+                    run_sikulix_script("more_edge_utils", "edge_scroll_images", [str(procrastination_time)])
 
             time.sleep(1)
             close_tab = run_sikulix_script("edge_utils", "close_latest_tab")
-
-            print("Procrastinating 4")
         #else:
             #work
 
