@@ -55,6 +55,7 @@ def main():
 
             time.sleep(1)
             close_tab = run_sikulix_script("edge_utils", "close_latest_tab")
+            break
         #else:
             #work
 
