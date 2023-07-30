@@ -30,7 +30,9 @@ def main():
 
     # Decide if the user procrastinates or works
     while True:
+        print("Deciding if the user procrastinates or works")
         if random.uniform(0, 1) < cfg["user"]["procrastination_chance"]:
+            print("Procrastinating")
             procrastination_time = random.uniform(cfg["user"]["procrastination_min_time"], cfg["user"]["procrastination_max_time"])
 
             # Open edge
@@ -39,7 +41,7 @@ def main():
                 #continue
 
             time.sleep(1)
-
+            print("Procrastinating 2")
             if random.uniform(0, 1) < cfg["user"]["procrastination_preference"]:
                 # Procrastinate on youtube
                 search_url = run_sikulix_script("edge_utils", "search_by_url", ["youtube.com"])
@@ -53,8 +55,12 @@ def main():
                 time.sleep(10)
                 run_sikulix_script("more_edge_utils", "edge_scroll_images", [str(procrastination_time)])
 
+            print("Procrastinating 3")
+
             time.sleep(1)
             close_tab = run_sikulix_script("edge_utils", "close_latest_tab")
+
+            print("Procrastinating 4")
         #else:
             #work
 
