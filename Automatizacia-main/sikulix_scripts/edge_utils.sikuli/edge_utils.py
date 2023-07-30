@@ -9,10 +9,9 @@ def open_edge():
     try:
         type(Key.WIN)
         wait(1)
-        type("Edge")
-        wait(1)
-        click("1689974843593.png")
-        wait(1)
+        type("Microsoft Edge")
+        wait("1690732958740.png")
+        type(Key.ENTER)
         if exists(Pattern("1690005339642.png").similar(0.80)):
            click("1690005339642.png")
         logger.log("info", "Finished opening Edge", "success")
