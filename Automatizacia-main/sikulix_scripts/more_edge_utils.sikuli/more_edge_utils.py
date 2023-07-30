@@ -10,7 +10,7 @@ def edge_scroll_images(time):
         click("1690286144726.png")
         wait("1690286179068.png")
         for i in range(int(convertedTime)):
-            sikuli.wheel(WHEEL_DOWN, 1)
+            wheel(WHEEL_DOWN, 1)
             wait(1)
         logger.log("info", "Finished scrolling images", "success")
     except FindFailed as ex:
