@@ -8,6 +8,30 @@ import edge_utils
 
 script_name = "roundcube_web.py"
 # Function declaration
+def open_mail():
+    try:
+        wait("1690923882783.png")
+        click("1690923882783.png")
+
+def filter_by_unread():
+    try:
+        if exists("1690923625911.png"):
+            click("1690923625911.png")
+            wait(10)
+    logger.log("info", "Filtered by unread", "success")
+    except Exception as ex:
+        logger.log("error", "Error while filtering by unread", "failure", ex)
+
+
+def open_top_email():
+    try:
+        wait("1690923882783.png")
+        click(Pattern("1690923882783.png").targetOffset(79,4))
+        wait(20)
+        if exists("1690923955826.png"):
+            scan_email()
+
+
 def login(email, password):
     try:
         type(email)
@@ -25,8 +49,8 @@ def open_unread_emails():
     try:
         #click("1689852937625.png")
         #wait(4)
-        while exists (Pattern("1689975173681.png").similar(0.80).targetOffset(0,-15)):
-            click(Pattern("1689975173681.png").similar(0.90).targetOffset(0,-15))
+        while exists (Pattern("1689975173681.png").similar(0.60).targetOffset(0,-15)):
+            click(Pattern("1689975173681.png").similar(0.60).targetOffset(0,-15))
             wait(4)
             scan_email()
             wait(0.5)
