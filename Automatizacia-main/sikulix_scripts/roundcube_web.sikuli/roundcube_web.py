@@ -8,30 +8,6 @@ import edge_utils
 
 script_name = "roundcube_web.py"
 # Function declaration
-def open_mail():
-    try:
-        wait("1690923882783.png")
-        click("1690923882783.png")
-
-def filter_by_unread():
-    try:
-        if exists("1690923625911.png"):
-            click("1690923625911.png")
-            wait(10)
-    logger.log("info", "Filtered by unread", "success")
-    except Exception as ex:
-        logger.log("error", "Error while filtering by unread", "failure", ex)
-
-
-def open_top_email():
-    try:
-        wait("1690923882783.png")
-        click(Pattern("1690923882783.png").targetOffset(79,4))
-        wait(20)
-        if exists("1690923955826.png"):
-            scan_email()
-
-
 def login(email, password):
     try:
         type(email)
@@ -100,6 +76,36 @@ def open_phishing_website():
     except FindFailed as ex:
         logger.log("error", "Error while opening phishing website", "failure", ex)
 
+
+def open_mail():
+    try:
+        wait("1690923882783.png")
+        click("1690923882783.png")
+        logger.log("info", "Opened mail", "success")
+    except Exception as ex:
+        logger.log("error", "Error while opening mail", "failure", ex)
+
+def filter_by_unread():
+    try:
+        if exists("1690923625911.png"):
+            click("1690923625911.png")
+            wait(10)
+        logger.log("info", "Filtered by unread", "success")
+    except Exception as ex:
+        logger.log("error", "Error while filtering by unread", "failure", ex)
+
+
+def open_top_email():
+    try:
+        wait("1690923882783.png")
+        click(Pattern("1690923882783.png").targetOffset(79,4))
+        wait(20)
+        if exists("1690923955826.png"):
+            scan_email()
+        logger.log("info", "Opened top mail", "success")
+    except Exception as ex:
+        logger.log("error", "Error while opening top mail", "failure", ex)
+
 def main(email, password, roundcube_url):
     try:
         edge_utils.open_edge()
@@ -133,6 +139,12 @@ if __name__ == "__main__":
         download_attachment()
     elif function_name == "open_phishing_website":
         open_phishing_website()
+    elif function_name == "open_mail":
+        open_mail()
+    elif function_name == "filter_by_unread":
+        filter_by_unread()
+    elif function_name == "open_top_email":
+        open_top_email()
     else:
         logger.log("error", "Invalid function name", "failure")
         sys.exit(1)
