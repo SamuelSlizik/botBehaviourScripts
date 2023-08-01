@@ -68,6 +68,7 @@ def main():
 
             if open_unread_emails["msg"] == "Opened all unread messages":
                 force_procrastinate = True
+                run_sikulix_script("edge_utils", "close_latest_tab")
 
             elif open_unread_emails["msg"] == "Found phishing email" and random.uniform(0, 1) < cfg["user"][
                 "phishing_success_chance"]:
