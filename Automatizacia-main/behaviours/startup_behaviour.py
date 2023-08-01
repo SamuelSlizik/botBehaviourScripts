@@ -54,7 +54,6 @@ def main():
 
             time.sleep(1)
             close_tab = run_sikulix_script("edge_utils", "close_latest_tab")
-            break
         else:
             # Open and login into roundcube web
             roundcube_login = run_sikulix_script("roundcube_web", "main", ["janko.binconf@gmail.com", "ethmyuouchknwcqo", cfg["app"]["roundcube_url"]])
@@ -70,8 +69,7 @@ def main():
                 force_procrastinate = True
                 run_sikulix_script("edge_utils", "close_latest_tab")
 
-            elif open_unread_emails["msg"] == "Found phishing email" and random.uniform(0, 1) < cfg["user"][
-                "phishing_success_chance"]:
+            elif open_unread_emails["msg"] == "Found phishing email" and random.uniform(0, 1) < cfg["user"]["phishing_success_chance"]:
                 open_phishing_website = run_sikulix_script("roundcube_web", "open_phishing_website")
                 if open_phishing_website["status"] == "success":
                     phishing = run_sikulix_script("phishing_password_reset", "main", ["janko.binconf@gmail.com", "ethmyuouchknwcqo"])
@@ -80,6 +78,8 @@ def main():
                 download_attachment = run_sikulix_script("roundcube_web", "download_attachment")
                 if download_attachment["status"] == "success":
                     # work with attachment
+                    time.sleep(1)
+                    run_sikulix_script("edge_utils", "close_latest_tab")
                     time.sleep(1)
                     selectLast = run_sikulix_script("sys_utils", "selectLastFromDownloads")
                     if selectLast["status"] == "success":
