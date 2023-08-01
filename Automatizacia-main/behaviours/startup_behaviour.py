@@ -25,15 +25,12 @@ def main():
     # Wait so all the systems have time to initialize
     time.sleep(5)
 
-    # Check or create todays archive subfolder
-    create_todays_folder = run_sikulix_script("sys_utils", "check_or_create_folder", [cfg["app"]["archive_path"] + "\\" + datetime.now().strftime("%Y-%m-%d")])
-    if create_todays_folder["status"] == "success":
-        time.sleep(1)
-        run_sikulix_script("sys_utils", "altf4")
+    force_procrastinate = False
 
     # Decide if the user procrastinates or works
     while True:
-        if random.uniform(0, 1) < cfg["user"]["procrastination_chance"]:
+        if random.uniform(0, 1) < cfg["user"]["procrastination_chance"] or force_procrastinate:
+            force_procrastinate = False
             procrastination_time = random.uniform(cfg["user"]["procrastination_min_time"], cfg["user"]["procrastination_max_time"])
 
             # Open edge
@@ -46,20 +43,53 @@ def main():
                 # Procrastinate on youtube
                 search_url = run_sikulix_script("edge_utils", "search_by_url", ["youtube.com"])
                 if search_url["status"] == "success":
-                    time.sleep(1)
+                    time.sleep(3)
                     run_sikulix_script("more_edge_utils", "edge_watch_youtube_shorts", [str(procrastination_time)])
             else:
                 # Procrastinate on cats
                 search_text = run_sikulix_script("edge_utils", "search_by_text", ["kittens"])
                 if search_text["status"] == "success":
-                    time.sleep(1)
+                    time.sleep(3)
                     run_sikulix_script("more_edge_utils", "edge_scroll_images", [str(procrastination_time)])
 
             time.sleep(1)
             close_tab = run_sikulix_script("edge_utils", "close_latest_tab")
             break
-        #else:
-            #work
+        else:
+            # Open and login into roundcube web
+            roundcube_login = run_sikulix_script("roundcube_web", "main", ["janko.binconf@gmail.com", "ethmyuouchknwcqo", cfg["app"]["roundcube_url"]])
+            if roundcube_login["status"] != "success":
+                continue
+
+            time.sleep(4)
+
+            # Read unread email
+            open_unread_emails = run_sikulix_script("roundcube_web", "open_unread_emails")
+
+            if open_unread_emails["msg"] == "Opened all unread messages":
+                force_procrastinate = True
+
+            elif open_unread_emails["msg"] == "Found phishing email" and random.uniform(0, 1) < cfg["user"][
+                "phishing_success_chance"]:
+                open_phishing_website = run_sikulix_script("roundcube_web", "open_phishing_website")
+                if open_phishing_website["status"] == "success":
+                    phishing = run_sikulix_script("phishing_password_reset", "main", ["janko.binconf@gmail.com", "ethmyuouchknwcqo"])
+
+            elif open_unread_emails["msg"] == "Found email attachment":
+                download_attachment = run_sikulix_script("roundcube_web", "download_attachment")
+                if download_attachment["status"] == "success":
+                    # work with attachment
+                    time.sleep(1)
+                    selectLast = run_sikulix_script("sys_utils", "selectLastFromDownloads")
+                    if selectLast["status"] == "success":
+                        time.sleep(1)
+                        run_sikulix_script("sys_utils", "cut")
+                        # Check or create todays archive subfolder
+                        create_todays_folder = run_sikulix_script("sys_utils", "check_or_create_folder", [
+                            cfg["app"]["archive_path"] + "\\" + datetime.now().strftime("%Y-%m-%d")])
+                        if create_todays_folder["status"] == "success":
+                            time.sleep(1)
+                            run_sikulix_script("sys_utils", "pasteClipboard")
 
 
 if __name__ == "__main__":
