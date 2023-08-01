@@ -26,6 +26,7 @@ def check_or_create_folder(path):
                     click("1690288271258.png")
                     wait("1690288251385.png")
                 click("1690288251385.png")
+                wait(1)
                 type(pathPiece)
                 type(Key.ENTER)
             else:
@@ -75,16 +76,16 @@ def selectFile(path):
 
 
 def copy():
-    type("c", Key.Modifier.CTRL)
+    type("c", Key.CTRL)
 
 
 def cut():
-    type("x", Key.Modifier.CTRL)
+    type("x", Key.CTRL)
 
 
 def pasteClipboard():
     # TODO: add recognition of duplicate files
-    type("v", Key.Modifier.CTRL)
+    type("v", Key.CTRL)
 
 
 def selectLastFromDownloads():

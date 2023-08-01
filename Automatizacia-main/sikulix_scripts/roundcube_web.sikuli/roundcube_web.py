@@ -23,11 +23,13 @@ def login(email, password):
 
 def open_unread_emails():
     try:
-        #click("1689852937625.png")
-        #wait(4)
+        if exists("1690925296596.png"):
+            click(Pattern("1690925296596.png").targetOffset(4,26))
+        if exists("1690925371195.png"):
+            click(Pattern("1690925371195.png").targetOffset(128,28))
         while exists (Pattern("1689975173681.png").similar(0.60).targetOffset(0,-15)):
             click(Pattern("1689975173681.png").similar(0.60).targetOffset(0,-15))
-            wait(4)
+            wait(10)
             scan_email()
             wait(0.5)
         logger.log("info", "Opened all unread messages", "success")
@@ -47,7 +49,7 @@ def scan_email():
             exit(0)
 
         # Check for attachments
-        if exists("1689972601012.png"):
+        if exists("1690925940672.png"):
             logger.log("info", "Found email attachment", "success")
             exit(0)
 
@@ -56,8 +58,10 @@ def scan_email():
 
 def download_attachment():
     try:
-        click("1689972601012.png")
-        wait(4)
+        click(Pattern("1690925940672.png").targetOffset(14,-2))
+        wait("1690926649062.png")
+        click("1690926649062.png")
+        wait(20)
         logger.log("info", "Downloaded attachement file", "success")
     except FindFailed as ex:
         logger.log("error", "Error while downloading attachment file", "failure", ex)
