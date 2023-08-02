@@ -92,7 +92,7 @@ def main():
                             time.sleep(1)
                             run_sikulix_script("sys_utils", "pasteClipboard")
                             extension = run_sikulix_script("sys_utils", "get_file_extension")
-                            print(extension)
+                            print(extension["msg"])
 
 
 if __name__ == "__main__":
