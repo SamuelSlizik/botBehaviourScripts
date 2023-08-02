@@ -124,6 +124,9 @@ if __name__ == "__main__":
 
     function_name = sys.argv[1]
 
+    if function_name == "get_file_extension":
+        get_file_extension()
+
     if function_name == "check_or_create_folder":
         path = sys.argv[2]
         check_or_create_folder(path)
@@ -140,6 +143,9 @@ if __name__ == "__main__":
 
     if function_name == "cut":
         cut()
+
+    if function_name == "escape":
+        escape()
 
     if function_name == "pasteClipboard":
         pasteClipboard()

@@ -91,6 +91,8 @@ def main():
                         if create_todays_folder["status"] == "success":
                             time.sleep(1)
                             run_sikulix_script("sys_utils", "pasteClipboard")
+                            extension = run_sikulix_script("sys_utils", "get_file_extension")
+                            print(extension)
 
 
 if __name__ == "__main__":
