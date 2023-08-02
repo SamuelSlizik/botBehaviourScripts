@@ -3,6 +3,18 @@ import os
 import logger
 
 # CTRL + SHIFT + 6 = file explorer view details
+def set_sort_by_date():
+    try:
+        click("1689242090615.png")
+        wait("1689242100443.png")
+        click("1689242100443.png")
+        wait("1689242125333.png")
+        click("1689242125333.png")
+        logger.log("info", "Finished setting sort by date", "success")
+    except Exception as ex:
+        logger.log("error", "Error while setting sort by date", "failure", ex)
+
+
 def get_file_extension():
     type(Key.F2)
     wait(0.5)
@@ -152,3 +164,6 @@ if __name__ == "__main__":
 
     if function_name == "selectLastFromDownloads":
         selectLastFromDownloads()
+
+    if function_name == "set_sort_by_date":
+        set_sort_by_date()
