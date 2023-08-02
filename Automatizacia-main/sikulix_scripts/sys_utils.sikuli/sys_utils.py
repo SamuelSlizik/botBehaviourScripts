@@ -16,8 +16,12 @@ def set_sort_by_date():
 
 
 def open_top_file():
-    doubleClick(Pattern("1690984136705.png").targetOffset(159,211))
-    wait(30)
+    try:
+        doubleClick(Pattern("1690984136705.png").targetOffset(159,211))
+        wait(30)
+        logger.log("info", "Finished opening top file", "success")
+    except Exception as ex:
+        logger.log("error", "Error while opening top file", "failure", ex)
 
 
 def get_file_extension():
