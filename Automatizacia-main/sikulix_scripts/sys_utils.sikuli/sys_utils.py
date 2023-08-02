@@ -3,6 +3,18 @@ import os
 import logger
 
 # CTRL + SHIFT + 6 = file explorer view details
+def get_file_extension():
+    type(Key.F2)
+    wait(0.5)
+    type(Key.RIGHT)
+    wait(0.5)
+    for i in range(20):
+        type(Key.RIGHT, Key.SHIFT)
+        wait(0.1)
+    copy()
+    escape()
+    clipboard_content = Env.getClipboard()
+    logger.log("info", "{clipboard}".format(clipboard=clipboard_content), "success")
 
 
 def check_or_create_folder(path):
@@ -73,6 +85,10 @@ def selectFile(path):
         logger.log("info", "Finished selecting file: {path}".format(path=path), "success")
     except Exception as ex:
         logger.log("error", "Error while selecting file: {path}, on level: {subPath}".format(path=path, subPath=partialPath), "failure", ex)
+
+
+def escape():
+    type(Key.ESC)
 
 
 def copy():
