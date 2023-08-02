@@ -15,6 +15,11 @@ def set_sort_by_date():
         logger.log("error", "Error while setting sort by date", "failure", ex)
 
 
+def open_top_file():
+    doubleClick(Pattern("1690984136705.png").targetOffset(159,211))
+    wait(30)
+
+
 def get_file_extension():
     type(Key.F2)
     wait(0.5)
