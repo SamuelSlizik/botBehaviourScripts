@@ -1,0 +1,2 @@
+Chyba SMTP (530): Nemožno nastaviť odosielateľa "janko.binconf@gmail.com" (5.7.0 Authentication Required. Learn more at
+5.7.0 https://support.google.com/mail/?p=WantAuthError x8-20020a05600c21c800b003fc02a410d0sm1929071wmj.48 - gsmtp).

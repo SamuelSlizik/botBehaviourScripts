@@ -120,6 +120,41 @@ def main(email, password, roundcube_url):
     except Exception as ex:
         logger.log("error", "Error while running main", "failure", ex)
 
+
+def send_mail(recipient, subject, content, include_attachment):
+    try:
+        click("1690984872883.png")
+        wait("1690984913880.png")
+        click(Pattern("1690984962950.png").targetOffset(-105,0))
+        wait(1)
+        type(recipient)
+        click(Pattern("1690984962950.png").targetOffset(-74,39))
+        wait(1)
+        type(subject)
+        click(Pattern("1690985072427.png").targetOffset(11,39))
+        wait(1)
+        type(content)
+        wait(1)
+        if include_attachment == "True":
+            click("1690985380051.png")
+            wait("1690988790835.png")
+            click("1690988790835.png")
+            rightClick(Pattern("1690989162048.png").targetOffset(131,127))
+            wait("1690989208186.png")
+            click("1690989208186.png")
+            wait("1690989256370.png")
+            click("1690989256370.png")
+            rightClick(Pattern("1690989162048.png").targetOffset(131,127))
+            wait("1690989208186.png")
+            click("1690989208186.png")
+            wait("1690989312190.png")
+            click("1690989312190.png")
+            doubleClick(Pattern("1690989162048.png").targetOffset(179,130))
+            doubleClick(Pattern("1690989162048.png").targetOffset(179,130))
+            wait(10)
+        click("1690984913880.png")
+
+
 if __name__ == "__main__":
     if len(sys.argv) < 1:
         logger.log("error", "No function name provided", "failure")
