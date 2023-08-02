@@ -4,6 +4,9 @@ user:
   procrastination_max_time: 210
   procrastination_preference: 0.5
   phishing_success_chance: 0.5
+  user_email: "janko.binconf@gmail.com"
+  user_password: "ethmyuouchknwcqo"
+  forward_email: "samo.slizik@gmail.com"
 
 app:
   sikulix_ide: C:\sikulixide.jar

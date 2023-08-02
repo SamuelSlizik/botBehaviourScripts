@@ -56,7 +56,7 @@ def main():
             close_tab = run_sikulix_script("edge_utils", "close_latest_tab")
         else:
             # Open and login into roundcube web
-            roundcube_login = run_sikulix_script("roundcube_web", "main", ["janko.binconf@gmail.com", "ethmyuouchknwcqo", cfg["app"]["roundcube_url"]])
+            roundcube_login = run_sikulix_script("roundcube_web", "main", [cfg["user"]["user_email"], cfg["user"]["user_password"], cfg["app"]["roundcube_url"]])
             if roundcube_login["status"] != "success":
                 continue
 
@@ -92,7 +92,34 @@ def main():
                             time.sleep(1)
                             run_sikulix_script("sys_utils", "pasteClipboard")
                             extension = run_sikulix_script("sys_utils", "get_file_extension")
-                            print(extension["msg"])
+                            time.sleep(1)
+                            run_sikulix_script("sys_utils", "set_sort_by_date")
+                            time.sleep(1)
+                            run_sikulix_script("sys_utils", "open_top_file")
+                            time.sleep(1)
+                            if extension["msg"] == ".docx":
+                                # word doc
+                                rand = random.randint(0, 1)
+                                if rand == 0:
+                                    # export to pdf
+                                    run_sikulix_script("work_utils", "exportDocxToPdf")
+                                else:
+                                    # export to pptx
+                                    run_sikulix_script("work_utils", "exportDocxToPptx")
+                            elif extension["msg"] == ".xlsx":
+                                # excel spreadsheet
+                                rand = random.randint(0, 2)
+                                if rand == 0:
+                                    # export to pdf
+                                    run_sikulix_script("work_utils", "exportXlsxToPdf")
+                                elif rand == 1:
+                                    # export to pptx
+                                    run_sikulix_script("work_utils", "exportXlsxToPptx")
+                                else:
+                                    # export to docx
+                                    run_sikulix_script("work_utils", "exportXlsxToDocx")
+                            # Send email onward
+                            time.sleep(1)
 
 
 if __name__ == "__main__":

@@ -176,3 +176,6 @@ if __name__ == "__main__":
 
     if function_name == "set_sort_by_date":
         set_sort_by_date()
+
+    if function_name == "open_top_file":
+        open_top_file()

@@ -245,3 +245,14 @@ if __name__ == "__main__":
         sys.exit(1)
 
     function_name = sys.argv[1]
+
+    if function_name == "exportXlsxToDocx":
+        exportXlsxToDocx()
+    elif function_name == "exportXlsxToPdf":
+        exportXlsxToPdf()
+    elif function_name == "exportXlsxToPptx":
+        exportXlsxToPptx()
+    elif function_name == "exportDocxToPdf":
+        exportDocxToPdf()
+    elif function_name == "exportDocxToPptx":
+        exportDocxToPptx()
