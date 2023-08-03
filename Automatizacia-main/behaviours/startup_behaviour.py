@@ -76,50 +76,59 @@ def main():
 
             elif open_unread_emails["msg"] == "Found email attachment":
                 download_attachment = run_sikulix_script("roundcube_web", "download_attachment")
-                if download_attachment["status"] == "success":
-                    # work with attachment
-                    time.sleep(1)
-                    run_sikulix_script("edge_utils", "close_latest_tab")
-                    time.sleep(1)
-                    selectLast = run_sikulix_script("sys_utils", "selectLastFromDownloads")
-                    if selectLast["status"] == "success":
-                        time.sleep(1)
-                        run_sikulix_script("sys_utils", "cut")
-                        # Check or create todays archive subfolder
-                        create_todays_folder = run_sikulix_script("sys_utils", "check_or_create_folder", [
-                            cfg["app"]["archive_path"] + "\\" + datetime.now().strftime("%Y-%m-%d")])
-                        if create_todays_folder["status"] == "success":
-                            time.sleep(1)
-                            run_sikulix_script("sys_utils", "pasteClipboard")
-                            extension = run_sikulix_script("sys_utils", "get_file_extension")
-                            time.sleep(1)
-                            run_sikulix_script("sys_utils", "set_sort_by_date")
-                            time.sleep(1)
-                            run_sikulix_script("sys_utils", "open_top_file")
-                            time.sleep(1)
-                            if extension["msg"] == ".docx":
-                                # word doc
-                                rand = random.randint(0, 1)
-                                if rand == 0:
-                                    # export to pdf
-                                    run_sikulix_script("work_utils", "exportDocxToPdf")
-                                else:
-                                    # export to pptx
-                                    run_sikulix_script("work_utils", "exportDocxToPptx")
-                            elif extension["msg"] == ".xlsx":
-                                # excel spreadsheet
-                                rand = random.randint(0, 2)
-                                if rand == 0:
-                                    # export to pdf
-                                    run_sikulix_script("work_utils", "exportXlsxToPdf")
-                                elif rand == 1:
-                                    # export to pptx
-                                    run_sikulix_script("work_utils", "exportXlsxToPptx")
-                                else:
-                                    # export to docx
-                                    run_sikulix_script("work_utils", "exportXlsxToDocx")
-                            # Send email onward
-                            time.sleep(1)
+                if download_attachment["status"] != "success":
+                    continue
+                # work with attachment
+                time.sleep(1)
+                run_sikulix_script("edge_utils", "close_latest_tab")
+                time.sleep(1)
+                selectLast = run_sikulix_script("sys_utils", "selectLastFromDownloads")
+                if selectLast["status"] != "success":
+                    continue
+                time.sleep(1)
+                run_sikulix_script("sys_utils", "cut")
+                # Check or create todays archive subfolder
+                create_todays_folder = run_sikulix_script("sys_utils", "check_or_create_folder", [cfg["app"]["archive_path"] + "\\" + datetime.now().strftime("%Y-%m-%d")])
+                if create_todays_folder["status"] != "success":
+                    continue
+                time.sleep(1)
+                run_sikulix_script("sys_utils", "pasteClipboard")
+                extension = run_sikulix_script("sys_utils", "get_file_extension")
+                time.sleep(1)
+                run_sikulix_script("sys_utils", "set_sort_by_date")
+                time.sleep(1)
+                run_sikulix_script("sys_utils", "open_top_file")
+                time.sleep(1)
+                if extension["msg"] == ".docx":
+                    # word doc
+                    rand = random.randint(0, 1)
+                    if rand == 0:
+                        # export to pdf
+                        run_sikulix_script("work_utils", "exportDocxToPdf")
+                    else:
+                        # export to pptx
+                        run_sikulix_script("work_utils", "exportDocxToPptx")
+                elif extension["msg"] == ".xlsx":
+                    # excel spreadsheet
+                    rand = random.randint(0, 2)
+                    if rand == 0:
+                        # export to pdf
+                        run_sikulix_script("work_utils", "exportXlsxToPdf")
+                    elif rand == 1:
+                        # export to pptx
+                        run_sikulix_script("work_utils", "exportXlsxToPptx")
+                    else:
+                        # export to docx
+                        run_sikulix_script("work_utils", "exportXlsxToDocx")
+                # Send email onward
+                time.sleep(1)
+                roundcube_login = run_sikulix_script("roundcube_web", "main", [cfg["user"]["user_email"], cfg["user"]["user_password"], cfg["app"]["roundcube_url"]])
+                if roundcube_login["status"] != "success":
+                    continue
+                time.sleep(1)
+                run_sikulix_script("work_utils", "send_mail", [cfg["user"]["forward_email"], "Test subject", "Test body", "True"])
+                time.sleep(1)
+                run_sikulix_script("edge_utils", "close_latest_tab")
 
 
 if __name__ == "__main__":
