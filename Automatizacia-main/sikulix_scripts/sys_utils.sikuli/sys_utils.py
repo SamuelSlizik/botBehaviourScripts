@@ -130,7 +130,7 @@ def selectLastFromDownloads():
         if (not exists("1689157669910.png")):
             click("1689157571730-1.png")
             wait("1689157669910.png")
-        click("1689157669910.png")
+        doubleClick("1689157669910.png")
         wait("1689157796776.png")
         click(Pattern("1689157796776.png").targetOffset(10,65))
         logger.log("info", "Finished selecting last file from downloads", "success")
