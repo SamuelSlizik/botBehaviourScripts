@@ -10,7 +10,6 @@ user:
   forward_email: "samo.slizik@gmail.com"
 
 app:
-  sikulix_ide: C:\sikulixide.jar
   roundcube_url: "http://62.197.235.65/roundcube/"
   archive_path: C:\Archive
   template_count: 1
