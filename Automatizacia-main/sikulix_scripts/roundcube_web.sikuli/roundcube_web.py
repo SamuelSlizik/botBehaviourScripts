@@ -158,6 +158,7 @@ def send_mail(recipient, subject, content, include_attachment):
             doubleClick(Pattern("1690989162048.png").targetOffset(179,130))
             wait(10)
         click("1690984913880.png")
+        wait(30)
 
 
 if __name__ == "__main__":
