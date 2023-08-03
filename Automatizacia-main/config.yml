@@ -1,4 +1,5 @@
 user:
+  is_generator: True
   procrastination_chance: -1
   procrastination_min_time: 30
   procrastination_max_time: 210
@@ -12,6 +13,7 @@ app:
   sikulix_ide: C:\sikulixide.jar
   roundcube_url: "http://62.197.235.65/roundcube/"
   archive_path: C:\Archive
+  template_count: 1
 
 logging:
   version: 1
