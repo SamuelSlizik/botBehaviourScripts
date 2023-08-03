@@ -190,6 +190,9 @@ if __name__ == "__main__":
         filter_by_unread()
     elif function_name == "open_top_email":
         open_top_email()
+    elif function_name == "send_mail":
+        recipient, subject, content, include_attachment = sys.argv[2].split(";")
+        send_mail(recipient, subject, content, include_attachment)
     else:
         logger.log("error", "Invalid function name", "failure")
         sys.exit(1)
