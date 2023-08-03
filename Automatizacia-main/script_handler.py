@@ -12,7 +12,6 @@ cfg=None
 parent_dir = os.path.dirname(os.path.abspath(__file__))
 config_file = os.path.join(parent_dir, "config.yml")
 scripts_dir = os.path.join(parent_dir, "sikulix_scripts")
-sikulix_ide = os.path.join(parent_dir, "sikulixide.jar")
 
 # Read config
 with open(config_file, "r") as stream:
@@ -77,7 +76,7 @@ def run_sikulix_script(script_name: str, function_name: str = "main", script_arg
     script_args = ";".join(script_args) if script_args else ""
 
     # Create command
-    command = f'java -jar {sikulix_ide} -r {script_path} --args {function_name} {script_args}'
+    command = f'java -jar {cfg["app"]["sikulix_path"]} -r {script_path} --args {function_name} {script_args}'
 
     # Run sikulix script
     process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)

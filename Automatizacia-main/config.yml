@@ -12,6 +12,7 @@ user:
 app:
   roundcube_url: "http://62.197.235.65/roundcube/"
   archive_path: C:\Archive
+  sikulix_path: C:\sikulixide.jar
   template_count: 1
 
 logging:
