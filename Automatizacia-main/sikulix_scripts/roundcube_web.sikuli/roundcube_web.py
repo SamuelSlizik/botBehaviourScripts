@@ -159,6 +159,9 @@ def send_mail(recipient, subject, content, include_attachment):
             wait(10)
         click("1690984913880.png")
         wait(30)
+        logger.log("info", "Succesfully sent mail", "success")
+    except Exception as ex:
+        logger.log("error", "Error while sending mail", "failure", ex)
 
 
 if __name__ == "__main__":
