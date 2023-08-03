@@ -143,15 +143,15 @@ def main():
                         else:
                             # export to docx
                             run_sikulix_script("work_utils", "exportXlsxToDocx")
-                # Send email onward
-                time.sleep(1)
-                roundcube_login = run_sikulix_script("roundcube_web", "main", [cfg["user"]["user_email"], cfg["user"]["user_password"], cfg["app"]["roundcube_url"]])
-                if roundcube_login["status"] != "success":
-                    continue
-                time.sleep(1)
-                run_sikulix_script("work_utils", "send_mail", [cfg["user"]["forward_email"], "Test subject", "Test body", "True"])
-                time.sleep(1)
-                run_sikulix_script("edge_utils", "close_latest_tab")
+            # Send email onward
+            time.sleep(1)
+            roundcube_login = run_sikulix_script("roundcube_web", "main", [cfg["user"]["user_email"], cfg["user"]["user_password"], cfg["app"]["roundcube_url"]])
+            if roundcube_login["status"] != "success":
+                continue
+            time.sleep(1)
+            run_sikulix_script("work_utils", "send_mail", [cfg["user"]["forward_email"], "Test subject", "Test body", "True"])
+            time.sleep(1)
+            run_sikulix_script("edge_utils", "close_latest_tab")
 
 
 if __name__ == "__main__":
