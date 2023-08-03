@@ -57,7 +57,7 @@ def main():
             time.sleep(1)
             close_tab = run_sikulix_script("edge_utils", "close_latest_tab")
         else:
-            if cfg["user"]["is_generator"] == "True":
+            if cfg["user"]["is_generator"]:
                 # generate new work
                 template_name = "template" + str(random.randint(1, int(cfg["app"]["template_count"]))) + random.choice([".docx", ".xlsx", ".pptx", ".pdf"])
                 template_path = os.path.join(templates_dir, template_name)
