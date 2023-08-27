@@ -44,7 +44,10 @@ def check_or_create_folder(path):
         if splitPath[0] == "C:":
             splitPath.pop(0)
         if not exists("1689173481864.png"):
-            click("1689157571730.png")
+            if not exists("1689157571730.png"):
+                type("e", Key.WIN)
+            else:
+                click("1689157571730.png")
             wait("1689173481864.png")
         
         click("1689173481864.png")
@@ -87,7 +90,10 @@ def selectFile(path):
         item = splitPath.pop()
         
         if not exists("1689173481864.png"):
-            click("1689157571730.png")
+            if not exists("1689157571730.png"):
+                type("e", Key.WIN)
+            else:
+                click("1689157571730.png")
             wait("1689173481864.png")
         
         click("1689173481864.png")
@@ -128,7 +134,10 @@ def pasteClipboard():
 def selectLastFromDownloads():
     try:
         if (not exists("1689157669910.png")):
-            click("1689157571730-1.png")
+            if not exists("1689157571730.png"):
+                type("e", Key.WIN)
+            else:
+                click("1689157571730.png")
             wait("1689157669910.png")
         doubleClick("1689157669910.png")
         wait("1689157796776.png")
