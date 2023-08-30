@@ -15,7 +15,7 @@ def start_edge_scroll_images():
 
 def edge_scroll_images():
     wheel(WHEEL_DOWN, 1)
-            wait(5)
+    wait(5)
     
 
 def old_edge_scroll_images(time):
