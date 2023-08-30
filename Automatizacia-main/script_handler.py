@@ -3,8 +3,6 @@ import subprocess
 import logging
 import logging.config
 import sys
-import time
-
 import yaml
 import json
 
@@ -76,7 +74,7 @@ def run_sikulix_script(script_name: str, function_name: str = "main", script_arg
     script_args = ";".join(script_args) if script_args else ""
 
     # Create command
-    command = f'java -jar {cfg["app"]["sikulix_path"]} -r {script_path} --args {function_name} {script_args}'
+    command = f'java -jar {cfg["app"]["sikulix_ide"]} -r {script_path} --args {function_name} {script_args}'
 
     # Run sikulix script
     process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)

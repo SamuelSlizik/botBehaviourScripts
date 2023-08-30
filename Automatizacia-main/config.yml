@@ -1,3 +1,7 @@
+automatization_client:
+  caldera_agent: http://127.0.0.1:5000/getStatus
+  force_stop_behaviour: False
+
 user:
   is_generator: True
   procrastination_chance: -1
@@ -7,12 +11,14 @@ user:
   phishing_success_chance: 0.5
   user_email: "janko.binconf@gmail.com"
   user_password: "ethmyuouchknwcqo"
+  phishing_email: ""
+  phishing_password: ""
   forward_email: "samo.slizik@gmail.com"
 
 app:
+  sikulix_ide: C:\sikulixide.jar
   roundcube_url: "http://62.197.235.65/roundcube/"
   archive_path: C:\Archive
-  sikulix_path: C:\sikulixide.jar
   template_count: 1
 
 logging:

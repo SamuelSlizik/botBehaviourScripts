@@ -82,3 +82,11 @@ if __name__ == "__main__":
     elif function_name == "old_edge_watch_youtube_shorts":
         time = sys.argv[2]
         old_edge_watch_youtube_shorts(time)
+    elif function_name == "edge_scroll_images":
+        edge_scroll_images()
+    elif function_name == "edge_watch_youtube_shorts":
+        edge_watch_youtube_shorts()
+    elif function_name == "start_edge_scroll_images":
+        start_edge_scroll_images()
+    elif function_name == "start_edge_watch_youtube":
+        start_edge_watch_youtube()
