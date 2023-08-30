@@ -8,9 +8,9 @@ def start_edge_scroll_images():
         wait("1690286144726.png")
         click("1690286144726.png")
         wait("1690286179068.png")
-        logger.log("info", "Finished scrolling images", "success")
-    except FindFailed as ex:
-        logger.log("error", "Error while scrolling images", "failure", ex)
+        logger.log("info", "Finished start scrolling images", "success")
+    except Exception as ex:
+        logger.log("error", "Error while start scrolling images", "failure", ex)
 
 
 def edge_scroll_images():
@@ -27,17 +27,17 @@ def old_edge_scroll_images(time):
         for i in range(int(convertedTime / 5)):
             wheel(WHEEL_DOWN, 1)
             wait(5)
-        logger.log("info", "Finished start scrolling images", "success")
-    except FindFailed as ex:
-        logger.log("error", "Error while scrolling images", "failure", ex)
+        logger.log("info", "Finished scrolling images", "success")
+    except Exception as ex:
+        logger.log("error", "Error while start scrolling images", "failure", ex)
 
 
-def start_edge_watch_youtube():
+def start_edge_watch_youtube_shorts():
     try:
         wait("1690290587338.png")
         click("1690290587338.png")
         wait("1690290670091.png")
-        logger.log("info", "Finished watching youtube shorts", "success")
+        logger.log("info", "Finished start watching youtube shorts", "success")
     except Exception as ex:
         logger.log("error", "Error while watching youtube shorts", "failure", ex)
 
@@ -88,5 +88,5 @@ if __name__ == "__main__":
         edge_watch_youtube_shorts()
     elif function_name == "start_edge_scroll_images":
         start_edge_scroll_images()
-    elif function_name == "start_edge_watch_youtube":
-        start_edge_watch_youtube()
+    elif function_name == "start_edge_watch_youtube_shorts":
+        start_edge_watch_youtube_shorts()

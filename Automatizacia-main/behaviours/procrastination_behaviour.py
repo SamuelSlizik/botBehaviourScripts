@@ -41,7 +41,7 @@ def main():
             time.sleep(3)
             start_procrast = run_sikulix_script("more_edge_utils", "start_edge_watch_youtube_shorts")
             if start_procrast["status"] == "success":
-                while (datetime.now() - start_time).total_seconds() < procrastination_time and cfg["automatization_client"]["force_stop_behaviour"] == "False":
+                while (datetime.now() - start_time).total_seconds() < procrastination_time and cfg["automatization_client"]["force_stop_behaviour"] == False:
                     procrast = run_sikulix_script("more_edge_utils", "edge_watch_youtube_shorts")
                     if procrast["status"] != "success":
                         break
@@ -52,7 +52,7 @@ def main():
             time.sleep(3)
             start_procrast = run_sikulix_script("more_edge_utils", "start_edge_scroll_images")
             if start_procrast["status"] == "success":
-                while (datetime.now() - start_time).total_seconds() < procrastination_time and cfg["automatization_client"]["force_stop_behaviour"] == "False":
+                while (datetime.now() - start_time).total_seconds() < procrastination_time and cfg["automatization_client"]["force_stop_behaviour"] == False:
                     run_sikulix_script("more_edge_utils", "edge_scroll_images")
 
     time.sleep(1)
