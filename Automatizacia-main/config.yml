@@ -8,16 +8,15 @@ user:
   procrastination_min_time: 30
   procrastination_max_time: 210
   procrastination_preference: 0.5
-  phishing_success_chance: 0.5
-  user_email: "janko.binconf@gmail.com"
-  user_password: "ethmyuouchknwcqo"
+  user_email: "eder.menhart@kyberakademia.sk"
+  user_password: "Uz2gRCyM4307HxQx"
   phishing_email: ""
   phishing_password: ""
   forward_email: "samo.slizik@gmail.com"
 
 app:
-  sikulix_ide: C:\sikulixide.jar
-  roundcube_url: "http://62.197.235.65/roundcube/"
+  sikulix_ide: "C:/sikulix/sikulixide.jar"
+  roundcube_url: "http://192.168.11.2/roundcube"
   archive_path: C:\Archive
   template_count: 1
 
