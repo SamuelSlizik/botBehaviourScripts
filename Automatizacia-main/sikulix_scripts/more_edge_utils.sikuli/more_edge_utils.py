@@ -34,6 +34,13 @@ def old_edge_scroll_images(time):
 
 def start_edge_watch_youtube_shorts():
     try:
+        wait(3)
+        if exists("1693470944627.png"):
+            click("1693470944627.png")
+            wheel(WHEEL_DOWN, 10)
+            wait("1693471040281.png")
+            click("1693471040281.png")
+            wait(10)
         wait("1690290587338.png")
         click("1690290587338.png")
         wait("1690290670091.png")

@@ -12,7 +12,7 @@ user:
   user_password: "Uz2gRCyM4307HxQx"
   phishing_email: ""
   phishing_password: ""
-  forward_email: "samo.slizik@gmail.com"
+  forward_email: "lubomira.debnar@kyberakademia.sk"
 
 app:
   sikulix_ide: "C:/sikulix/sikulixide.jar"
