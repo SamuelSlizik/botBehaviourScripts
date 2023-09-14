@@ -131,6 +131,16 @@ def pasteClipboard():
     type("v", Key.CTRL)
 
 
+def rename(name):
+    wait(1)
+    type(Key.F2)
+    wait(1)
+    type(name)
+    wait(1)
+    type(Key.ENTER)
+    wait(1)
+
+
 def selectLastFromDownloads():
     try:
         if (not exists("1689157669910.png")):
@@ -157,34 +167,43 @@ if __name__ == "__main__":
     if function_name == "get_file_extension":
         get_file_extension()
 
-    if function_name == "check_or_create_folder":
+    elif function_name == "check_or_create_folder":
         path = sys.argv[2]
         check_or_create_folder(path)
 
-    if function_name == "selectFile":
+    elif function_name == "selectFile":
         path = sys.argv[2]
         selectFile(path)
 
-    if function_name == "altf4":
+    elif function_name == "altf4":
         altf4()
 
-    if function_name == "copy":
+    elif function_name == "copy":
         copy()
 
-    if function_name == "cut":
+    elif function_name == "cut":
         cut()
 
-    if function_name == "escape":
+    elif function_name == "escape":
         escape()
 
-    if function_name == "pasteClipboard":
+    elif function_name == "pasteClipboard":
         pasteClipboard()
 
-    if function_name == "selectLastFromDownloads":
+    elif function_name == "selectLastFromDownloads":
         selectLastFromDownloads()
 
-    if function_name == "set_sort_by_date":
+    elif function_name == "set_sort_by_date":
         set_sort_by_date()
 
-    if function_name == "open_top_file":
+    elif function_name == "open_top_file":
         open_top_file()
+
+    elif function_name == "rename":
+        name = sys.argv[2]
+        rename(name)
+
+    else:
+        logger.log("error", "Invalid function name", "failure")
+        sys.exit(1)
+        
